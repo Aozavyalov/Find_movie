@@ -16,16 +16,12 @@ while film_number != amount_of_films + 1:
         time.sleep(10 - (time.time() - time_of_cycle))
         time_of_cycle = time.time()
 
+    url = 'https://api.themoviedb.org/3/movie/' + str(film_number) + '?api_key=' + api_key + '&language=ru'
     try:
-        url = 'https://api.themoviedb.org/3/movie/' + str(film_number) + '?api_key=' + api_key
         film = urllib.request.urlopen(url).read().decode('utf-8')
         films_base.append(json.loads(film))
-        json.dump(film, films_file)
-        films_file.write('\n')
+        films_file.write(film + '\n')
         print('Film number %d saved' % film_number)
     except:
         amount_of_films += 1
     film_number += 1
-
-# проверка числа элементов
-print('Length of the list = %d' % len(films_base))
