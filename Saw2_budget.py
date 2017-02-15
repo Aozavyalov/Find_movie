@@ -2,6 +2,7 @@ import urllib.request
 import urllib.parse
 import json
 
+
 def load_json_data_from_url(base_url, url_params):
     url = '%s?%s' % (base_url, urllib.parse.urlencode(url_params))
     response = urllib.request.urlopen(url).read().decode('utf-8')
@@ -18,7 +19,12 @@ def make_tmdb_api_request(method, api_key, extra_params=None):
     params.update(extra_params)
     return load_json_data_from_url(url, params)
 
-api_key = '216472dda059242061bbeb827a5bdaa4'
-movie_num = '6'
 
-print(make_tmdb_api_request(method= '/movie/' + movie_num, api_key=api_key)['budget'])
+def get_saw_2_budget(api_key):
+    movie_num = '215'
+    print(make_tmdb_api_request(method='/movie/'+movie_num, api_key=api_key)['budget'])
+
+if __name__ == "__main__":
+    print("Input your api key:")
+    my_api_key = input()
+    get_saw_2_budget(api_key=my_api_key)

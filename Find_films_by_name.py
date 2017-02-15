@@ -1,11 +1,14 @@
-import json
+import Download_1000_films_to_json
 
-films = []
-in_file = open("films.json", 'r')
-for str_json in in_file:
-    films.append(json.loads(str_json))
-print('Введите слово, которое содержится в названии фильма:')
-name = input()
-for film in films:
-    if film['title'].lower().find(name.lower()) != -1 or film['original_title'].lower().find(name.lower()) != -1:
-        print(film['title'])
+
+def find_film_by_name():
+    films = Download_1000_films_to_json.get_1000_films()
+    print('Input a word from a film`s title:')
+    name = input()
+    for film in films:
+        if film['title'].lower().find(name.lower()) != -1 or film['original_title'].lower().find(name.lower()) != -1:
+            print(film['title'])
+
+
+if __name__ == '__main__':
+    find_film_by_name()
