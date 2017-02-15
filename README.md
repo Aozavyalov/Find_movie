@@ -1,9 +1,11 @@
 # Find_movie
 
-Первое задание: выдает бюджет фильма Пила 2.
+This project is an example of using The Movie DB(TMDB) API. To use is you need to have a key, to get it sign up in https://www.themoviedb.org/.
 
-Второе задание: выкачивает 1000 фильмов из бд ТМДБ, однако не каждое число от 1 до 1000 является индексом фильма, поэтому в последний id в нашей базе - 2316.
+Saw2_budget.py sends a request to TMDB with movie number(215), your API key, and get json data(dictionary in Python). So it's easy to print budget of saw 2.
 
-Третье задание: вводится часть названия фильма (на русском или из оригинального названия) и программа выдаст все фильмы, в которых есть подстрока с ним.
+Download_1000_films_to_json.py checks the file 'films.json'. If there are 1000 lines, nothing will happend. Else it will download 1000 json string and write to the file. 
 
-Четвертое задание: вводится точное название фильма, программа выдаст 10 фильмов, похожих на него. В критерии входит принадлежность к одной серии фильмов, совпадение жанров и минимальная разность рейтинга.
+Find_films_by_name.py uses previous .py file for getting 1000 films, after that it search all films with titles and original titles, containing a string or a substring, you entered.
+
+Find_films_by_film.py also uses Download_1000_films_to_json.py to get 1000 films. It search a film with a title you entered, and make a rating of films, which have the same parameters. Belonging to one collection adds 20 points, every same genre adds 10 points, differens between average votes multiplies by 10 and adds to rating. Then it print 10 films with max rating.
