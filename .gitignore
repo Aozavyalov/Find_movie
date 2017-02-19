@@ -2,3 +2,5 @@ films.json
 films1.json
 .idea/*
 __pycache__/*
+/example.py
+/ex_file.txt
